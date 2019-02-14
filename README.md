@@ -31,7 +31,13 @@ The method referenced in the project:</br>
 ```
 ### Step 3. Reference control in layout</br>
 步骤3. 布局中引用控件
-
+```Java
+<com.windmillview.WindMillView
+            android:id="@+id/wm1"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
+            app:windColor="@color/white" />
+```
 If my control helps you, please help click on the top right corner, thank you!</br>
 ### <font color="#FF0000">如果有帮助到大家希望点下右上角Star，谢谢！</font>
 
