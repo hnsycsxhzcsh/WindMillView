@@ -1,5 +1,6 @@
 package com.windmillview;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -12,6 +13,8 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
+
+import java.lang.ref.WeakReference;
 
 /**
  * Created by HARRY on 2019/2/14 0014.
@@ -57,19 +60,7 @@ public class WindMillView extends View {
      * 控件颜色
      */
     private int mColor;
-    private Handler mHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            if (mOffsetAngle >= 0 && mOffsetAngle < 360) {
-                mOffsetAngle = mOffsetAngle + 1;
-            } else {
-                mOffsetAngle = 1;
-            }
-            invalidate();
-            startRotate();
-        }
-    };
+    private MsgHandler mHandler = new MsgHandler(this);
 
     public WindMillView(Context context) {
         this(context, null);
@@ -202,5 +193,32 @@ public class WindMillView extends View {
      */
     public void stop() {
         mHandler.removeMessages(0);
+    }
+
+
+    static class MsgHandler extends Handler {
+        private WeakReference<WindMillView> mView;
+
+        MsgHandler(WindMillView view) {
+            mView = new WeakReference<WindMillView>(view);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            WindMillView view = mView.get();
+            if (view != null) {
+                view.handleMessage(msg);
+            }
+        }
+    }
+
+    private void handleMessage(Message msg) {
+        if (mOffsetAngle >= 0 && mOffsetAngle < 360) {
+            mOffsetAngle = mOffsetAngle + 1;
+        } else {
+            mOffsetAngle = 1;
+        }
+        invalidate();
+        startRotate();
     }
 }
