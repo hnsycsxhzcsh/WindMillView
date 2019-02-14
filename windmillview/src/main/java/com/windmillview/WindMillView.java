@@ -195,7 +195,6 @@ public class WindMillView extends View {
         mHandler.removeMessages(0);
     }
 
-
     static class MsgHandler extends Handler {
         private WeakReference<WindMillView> mView;
 
