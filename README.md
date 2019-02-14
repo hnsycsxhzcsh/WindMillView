@@ -1,5 +1,5 @@
 # WindMillView
-Android自定义控件WindMillView，天气风车效果
+Android自定义控件WindMillView，天气风车效果（Android custom control WindMillView, weather windmill effect）
 
 <a href="https://github.com/hnsycsxhzcsh/WindMillView/blob/master/mysrc/windmill.apk">Download Apk</a>
 
