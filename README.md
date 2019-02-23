@@ -38,6 +38,9 @@ The method referenced in the project:</br>
             android:layout_height="120dp"
             app:windColor="@color/white" />
 ```
+### Step 4. Call the view's startRotate method in the activity to start the rotation.
+步骤4. activity中调用控件的startRotate方法开启旋转
+
 If my control helps you, please help click on the top right corner, thank you!</br>
 ### <font color="#FF0000">如果有帮助到大家希望点下右上角Star，谢谢！</font>
 
